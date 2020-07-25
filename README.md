@@ -13,6 +13,14 @@ composer require goodechilde/gc-notes
 php artisan vendor:publish --tag=gc-notes 
 ```
 
+## Usage
+It's as simple as adding the following traits to any model you want to have notes
+```bash
+    use HasNotes;
+```
+
+It is recommended to create a controller for to get and set NoteTypes
+
 ## Feedback
 
 Please feel free to give us feedback or any improvement suggestions.
