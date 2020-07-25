@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AddressSeeder extends Seeder
+class NoteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class AddressSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Goodechilde\CommonContact\Models\Address::class, 25)->create();
+        factory(\Goodechilde\CommonContact\Models\Note::class, 25)->create();
     }
 }

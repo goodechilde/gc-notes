@@ -3,7 +3,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ContactTypeSeeder extends Seeder
+class NoteTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ContactTypeSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Goodechilde\CommonContact\Models\ContactType::class, 40)->create();
+        factory(\Goodechilde\CommonContact\Models\NoteType::class, 40)->create();
     }
 }
