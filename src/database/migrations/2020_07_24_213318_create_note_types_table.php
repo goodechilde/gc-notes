@@ -15,7 +15,7 @@ class CreateNoteTypesTable extends Migration
     {
         Schema::create('note_types', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
+            $table->string('name');
             $table->timestampsTz();
             $table->softDeletesTz();
         });
