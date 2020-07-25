@@ -7,6 +7,7 @@ use Str;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory as EloquentFactory;
+//use Goodechilde\GcNotes\SeedServiceProvider;
 
 class GcNotesServiceProvider extends ServiceProvider
 {
@@ -34,7 +35,7 @@ class GcNotesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->register(SeedServiceProvider::class);
+//        $this->app->register(SeedServiceProvider::class);
         $this->registerEloquentFactoriesFrom(__DIR__ . '/database/factories');
         /*
          * Optional methods to load your package assets
