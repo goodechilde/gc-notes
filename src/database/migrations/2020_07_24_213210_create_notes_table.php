@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->foreignId('note_type_id');
             $table->string('line1');
-            $table->morphs('noteable')->nullable();
+            $table->nullableMorphs('noteable');
             $table->timestampsTz();
             $table->softDeletesTz();
         });
