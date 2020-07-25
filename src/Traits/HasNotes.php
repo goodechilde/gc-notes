@@ -1,8 +1,8 @@
 <?php
 
-namespace Goodechilde\CommonContact\Traits;
+namespace Goodechilde\GcNotes\Traits;
 
-use Goodechilde\CommonContact\Models\Note;
+use Goodechilde\GcNotes\Models\Note;
 
 trait HasNotes
 {

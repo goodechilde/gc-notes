@@ -11,6 +11,6 @@ class NoteSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Goodechilde\CommonContact\Models\Note::class, 25)->create();
+        factory(\Goodechilde\GcNotes\Models\Note::class, 25)->create();
     }
 }

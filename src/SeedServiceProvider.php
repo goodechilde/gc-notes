@@ -1,6 +1,6 @@
 <?php
 
-namespace Goodechilde\CommonContact;
+namespace Goodechilde\GcNotes;
 
 use Illuminate\Console\Events\CommandFinished;
 use Illuminate\Support\Facades\Artisan;
