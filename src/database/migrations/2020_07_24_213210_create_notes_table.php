@@ -16,7 +16,7 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('note_type_id');
-            $table->string('line1');
+            $table->string('note');
             $table->nullableMorphs('noteable');
             $table->timestampsTz();
             $table->softDeletesTz();
