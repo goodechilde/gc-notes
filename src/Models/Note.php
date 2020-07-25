@@ -10,6 +10,7 @@ class Note extends Model
      use SoftDeletes;
 
     protected $guarded = [ 'id' ];
+    protected $with = ['noteType'];
 
     public function noteType()
     {
