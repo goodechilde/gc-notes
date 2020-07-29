@@ -18,6 +18,8 @@ class CreateNotesTable extends Migration
             $table->foreignId('note_type_id');
             $table->text('note');
             $table->nullableMorphs('noteable');
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestampsTz();
             $table->softDeletesTz();
         });
