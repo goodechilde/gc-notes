@@ -1,0 +1,138 @@
+NoteTypes:
+  get:
+    summary: NoteType index
+    description: Returns a list of noteTypes
+    operationId: noteTypeIndex
+    security:
+      - basic_auth: []
+    noteTypes:
+      - 'NoteType'
+    parameters:
+      - $ref: './parameters/NoteTypeParameters.yaml#/NoteTypeSort'
+      - $ref: './parameters/NoteTypeParameters.yaml#/NoteTypeFilters'
+      - $ref: './parameters/NoteTypeParameters.yaml#/NoteTypePage'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              description: NoteType response object
+              required:
+                - data
+                - links
+                - meta
+              properties:
+                data:
+                  type: array
+                  description: A collection of noteTypes
+                  items:
+                    $ref: './schemas/NoteTypeSchema.yaml#/NoteType'
+                links:
+                  $ref: './schemas/NoteTypeSchema.yaml#/NoteTypeLinks'
+                meta:
+                  $ref: './schemas/NoteTypeSchema.yaml#/NoteTypeMeta'
+      '400':
+        description: Bad Request
+  post:
+    summary: NoteType store
+    description: Stores a noteType
+    operationId: noteTypeStore
+    security:
+      - basic_auth: []
+    noteTypes:
+      - 'NoteType'
+    requestBody:
+      $ref: './components/NoteTypeComponent.yaml#/requestBodies/NoteTypeRequest'
+    responses:
+      '201':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: './schemas/NoteTypeSchema.yaml#/NoteType'
+      '422':
+        $ref: './responses/GeneralResponses.yaml#/UnprocessableResponse'
+NoteType:
+  get:
+    summary: NoteType show
+    description: Returns a single note type
+    operationId: noteTypeShow
+    security:
+      - basic_auth: []
+    noteTypes:
+      - 'NoteType'
+    parameters:
+      - name: noteTypeId
+        in: path
+        description: NoteType identifier for the url
+        required: true
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: './schemas/NoteTypeSchema.yaml#/NoteType'
+      '404':
+        $ref: './responses/GeneralResponses.yaml#/NotFoundResponse'
+      '400':
+        $ref: './responses/GeneralResponses.yaml#/BadRequestResponse'
+  put:
+    summary: NoteType update
+    description: Update a note type
+    operationId: noteTypeUpdate
+    security:
+      - basic_auth: []
+    noteTypes:
+      - 'NoteType'
+    parameters:
+      - name: noteTypeId
+        in: path
+        description: NoteType identifier for the url
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      $ref: './components/NoteTypeComponent.yaml#/requestBodies/NoteTypeRequest'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: './schemas/NoteTypeSchema.yaml#/NoteType'
+      '404':
+        $ref: './responses/GeneralResponses.yaml#/NotFoundResponse'
+  delete:
+    summary: NoteType delete
+    description: Delete a single note type
+    operationId: noteTypeDestroy
+    security:
+      - basic_auth: []
+    noteTypes:
+      - 'NoteType'
+    parameters:
+      - name: noteTypeId
+        in: path
+        description: NoteType identifier for the url
+        required: true
+        schema:
+          type: integer
+    responses:
+      '204':
+        description: No Content
+      '404':
+        $ref: './responses/GeneralResponses.yaml#/NotFoundResponse'

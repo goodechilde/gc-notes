@@ -1,0 +1,16 @@
+schemas:
+  $refs: '../schemas/NoteSchema.yaml'
+parameters:
+  $refs: '../parameters/NoteParameters.yaml'
+requestBodies:
+  NoteRequest:
+    content:
+      'application/json':
+        schema:
+          $ref: '../schemas/NoteSchema.yaml#/NoteFillableFields'
+responses:
+  $refs: './responses/GeneralResponses.yaml'
+securitySchemes:
+  basic_auth:
+    type: http
+    scheme: basic

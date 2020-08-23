@@ -1,0 +1,138 @@
+Notes:
+  get:
+    summary: Note index
+    description: Returns a list of notes
+    operationId: noteIndex
+    security:
+      - basic_auth: []
+    notes:
+      - 'Note'
+    parameters:
+      - $ref: './parameters/NoteParameters.yaml#/NoteSort'
+      - $ref: './parameters/NoteParameters.yaml#/NoteFilters'
+      - $ref: './parameters/NoteParameters.yaml#/NotePage'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Note response object
+              required:
+                - data
+                - links
+                - meta
+              properties:
+                data:
+                  type: array
+                  description: A collection of notes
+                  items:
+                    $ref: './schemas/NoteSchema.yaml#/Note'
+                links:
+                  $ref: './schemas/NoteSchema.yaml#/NoteLinks'
+                meta:
+                  $ref: './schemas/NoteSchema.yaml#/NoteMeta'
+      '400':
+        description: Bad Request
+  post:
+    summary: Note store
+    description: Stores a note
+    operationId: noteStore
+    security:
+      - basic_auth: []
+    notes:
+      - 'Note'
+    requestBody:
+      $ref: './components/NoteComponent.yaml#/requestBodies/NoteRequest'
+    responses:
+      '201':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: './schemas/NoteSchema.yaml#/Note'
+      '422':
+        $ref: './responses/GeneralResponses.yaml#/UnprocessableResponse'
+Note:
+  get:
+    summary: Note show
+    description: Returns a single note
+    operationId: noteShow
+    security:
+      - basic_auth: []
+    notes:
+      - 'Note'
+    parameters:
+      - name: noteId
+        in: path
+        description: Note identifier for the url
+        required: true
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: './schemas/NoteSchema.yaml#/Note'
+      '404':
+        $ref: './responses/GeneralResponses.yaml#/NotFoundResponse'
+      '400':
+        $ref: './responses/GeneralResponses.yaml#/BadRequestResponse'
+  put:
+    summary: Note update
+    description: Update a note
+    operationId: noteUpdate
+    security:
+      - basic_auth: []
+    notes:
+      - 'Note'
+    parameters:
+      - name: noteId
+        in: path
+        description: Note identifier for the url
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      $ref: './components/NoteComponent.yaml#/requestBodies/NoteRequest'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: './schemas/NoteSchema.yaml#/Note'
+      '404':
+        $ref: './responses/GeneralResponses.yaml#/NotFoundResponse'
+  delete:
+    summary: Note delete
+    description: Delete a single note
+    operationId: noteDestroy
+    security:
+      - basic_auth: []
+    notes:
+      - 'Note'
+    parameters:
+      - name: noteId
+        in: path
+        description: Note identifier for the url
+        required: true
+        schema:
+          type: integer
+    responses:
+      '204':
+        description: No Content
+      '404':
+        $ref: './responses/GeneralResponses.yaml#/NotFoundResponse'

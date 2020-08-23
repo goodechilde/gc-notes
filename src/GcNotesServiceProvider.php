@@ -64,6 +64,14 @@ class GcNotesServiceProvider extends ServiceProvider
                 __DIR__ . '/database/seeds' => database_path('seeds'),
             ], 'gc-notes');
 
+            $this->publishes([
+                __DIR__ . '/OpenAPI/components' => app_path('/OpenAPI/components'),
+                __DIR__ . '/OpenAPI/parameters' => app_path('/OpenAPI/parameters'),
+                __DIR__ . '/OpenAPI/schemas' => app_path('/OpenAPI/schemas'),
+                __DIR__ . '/OpenAPI/Note.yaml' => app_path('/OpenAPI/Note.yaml'),
+                __DIR__ . '/OpenAPI/NoteType.yaml' => app_path('/OpenAPI/NoteType.yaml'),
+            ], 'gc-openapis');
+
             // Publishing assets.
             /*$this->publishes([
                 __DIR__.'/../resources/assets' => public_path('vendor/common-contact'),
