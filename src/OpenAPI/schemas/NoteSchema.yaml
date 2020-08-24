@@ -70,15 +70,15 @@ NoteAuditData:
     createdBy:
       type: integer
       description: Who created the record
-      example: 2019-12-19T16:39:57-08:00
+      example: 12
     updatedBy:
       type: integer
       description: Who updated the record
-      example: 2019-12-20T17:38:59-08:00
+      example: 34
     deletedBy:
       type: integer
       description: Who deleted the record
-      example: 2019-12-20T17:38:59-08:00
+      example: 56
 NoteLinks:
   type: object
   description: Response links on index requests
