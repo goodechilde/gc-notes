@@ -28,7 +28,7 @@ NoteFillableFields:
     noteableType:
       description: Class for the polymorhic relation
       type: string
-      example: App\USer
+      example: App\User
       default: null
       nullable: true
     noteableId:
