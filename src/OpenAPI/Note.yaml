@@ -5,7 +5,7 @@ Notes:
     operationId: noteIndex
     security:
       - basic_auth: []
-    notes:
+    tags:
       - 'Note'
     parameters:
       - $ref: './parameters/NoteParameters.yaml#/NoteSort'
@@ -41,7 +41,7 @@ Notes:
     operationId: noteStore
     security:
       - basic_auth: []
-    notes:
+    tags:
       - 'Note'
     requestBody:
       $ref: './components/NoteComponent.yaml#/requestBodies/NoteRequest'
@@ -64,7 +64,7 @@ Note:
     operationId: noteShow
     security:
       - basic_auth: []
-    notes:
+    tags:
       - 'Note'
     parameters:
       - name: noteId
@@ -93,7 +93,7 @@ Note:
     operationId: noteUpdate
     security:
       - basic_auth: []
-    notes:
+    tags:
       - 'Note'
     parameters:
       - name: noteId
@@ -122,7 +122,7 @@ Note:
     operationId: noteDestroy
     security:
       - basic_auth: []
-    notes:
+    tags:
       - 'Note'
     parameters:
       - name: noteId

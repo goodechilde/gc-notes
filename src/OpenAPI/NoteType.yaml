@@ -5,7 +5,7 @@ NoteTypes:
     operationId: noteTypeIndex
     security:
       - basic_auth: []
-    noteTypes:
+    tags:
       - 'NoteType'
     parameters:
       - $ref: './parameters/NoteTypeParameters.yaml#/NoteTypeSort'
@@ -41,7 +41,7 @@ NoteTypes:
     operationId: noteTypeStore
     security:
       - basic_auth: []
-    noteTypes:
+    tags:
       - 'NoteType'
     requestBody:
       $ref: './components/NoteTypeComponent.yaml#/requestBodies/NoteTypeRequest'
@@ -64,7 +64,7 @@ NoteType:
     operationId: noteTypeShow
     security:
       - basic_auth: []
-    noteTypes:
+    tags:
       - 'NoteType'
     parameters:
       - name: noteTypeId
@@ -93,7 +93,7 @@ NoteType:
     operationId: noteTypeUpdate
     security:
       - basic_auth: []
-    noteTypes:
+    tags:
       - 'NoteType'
     parameters:
       - name: noteTypeId
@@ -122,7 +122,7 @@ NoteType:
     operationId: noteTypeDestroy
     security:
       - basic_auth: []
-    noteTypes:
+    tags:
       - 'NoteType'
     parameters:
       - name: noteTypeId
